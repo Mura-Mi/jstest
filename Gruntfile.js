@@ -25,6 +25,15 @@ module.exports = function(grunt) {
         target: {
             src: [ '**/*.html' ]
         }
+    },
+
+    connect: {
+        sample: {
+            options: {
+                port: 8334,
+                hostname: 'localhost'
+            }
+        }
     }
 
   });
@@ -32,6 +41,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-typescript');  
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-bower-install');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
-  grunt.registerTask('default', [ 'typescript', 'watch' ]);
+  grunt.registerTask('default', [ 'typescript', 'connect:sample', 'watch' ]);
 };
